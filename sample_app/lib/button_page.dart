@@ -20,11 +20,15 @@ class ButtonPage extends StatelessWidget {
                 onPressed: () {},
                 child: const Text('ElevatedButton'),
               ),
-              OutlinedButton(onPressed: () {}, child: const Text('OutlinedButton')),
+              OutlinedButton(
+                  onPressed: () {}, child: const Text('OutlinedButton')),
               Row(
                 children: <Widget>[
-                  FloatingActionButton(onPressed: () {}, child: const Icon(Icons.access_alarm)),
-                  const Padding(padding: EdgeInsets.only(left: 5.0), child: Text('FloatingActionButton')),
+                  FloatingActionButton(
+                      onPressed: () {}, child: const Icon(Icons.access_alarm)),
+                  const Padding(
+                      padding: EdgeInsets.only(left: 5.0),
+                      child: Text('FloatingActionButton')),
                 ],
               ),
               TextButton(onPressed: () {}, child: const Text('TextButton')),

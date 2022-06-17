@@ -10,40 +10,56 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  final _color = Colors.green;
+  var _useMaterial3 = true;
+
+  void _toggleMaterial() {
+    setState(() {
+      _useMaterial3 = !_useMaterial3;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.blue,
-
-        // primarySwatch: Colors.blue,
+        useMaterial3: _useMaterial3,
+        colorSchemeSeed: _useMaterial3 ? _color : null,
+        primarySwatch: _useMaterial3 ? null : _color,
       ),
-      home: const MyHomePage(title: 'Sample App'),
+      home: MyHomePage(
+        useMaterial3: _useMaterial3,
+        onTap: _toggleMaterial,
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({
+    super.key,
+    required bool useMaterial3,
+    required this.onTap,
+  }) : materialVersion = useMaterial3 ? '3' : '2';
 
-  final String title;
+  final String materialVersion;
+  final VoidCallback onTap;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Material Design $materialVersion Demo'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
@@ -130,6 +146,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        heroTag: 'main',
+        onPressed: onTap,
+        child: const Icon(Icons.refresh_outlined),
       ),
     );
   }

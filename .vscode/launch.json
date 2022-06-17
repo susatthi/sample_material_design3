@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "web-debug",
+      "program": "sample_app/lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--debug",
+        "--web-renderer",
+        "canvaskit",
+      ]
+    },
+    {
+      "name": "web-release",
+      "program": "sample_app/lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--web-renderer",
+        "canvaskit",
+      ]
+    }
+  ]
+}

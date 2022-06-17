@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "web-debug",
-      "program": "sample_app/lib/main.dart",
+      "program": "lib/main.dart",
       "request": "launch",
       "type": "dart",
       "args": [
@@ -14,7 +14,7 @@
     },
     {
       "name": "web-release",
-      "program": "sample_app/lib/main.dart",
+      "program": "lib/main.dart",
       "request": "launch",
       "type": "dart",
       "args": [

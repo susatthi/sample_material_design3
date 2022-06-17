@@ -13,7 +13,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('NavigationBarPage')),
+      appBar: AppBar(title: const Text('navigation bar page')),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {

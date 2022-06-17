@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Sample App'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -47,87 +48,116 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push<void>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ButtonPage(),
-                    ),
-                  );
-                },
-                child: const Text('button page'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push<void>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CardPage(),
-                    ),
-                  );
-                },
-                child: const Text('card page'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push<void>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AppBarPage(),
-                    ),
-                  );
-                },
-                child: const Text('app bar page'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push<void>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const NavigationBarPage(),
-                    ),
-                  );
-                },
-                child: const Text('navigation bar page'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push<void>(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const NavigationRailPage(),
-                    ),
-                  );
-                },
-                child: const Text('navigation rail page'),
-              ),
-              ElevatedButton(
-                onPressed: () => showDialog<String>(
-                  context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    title: const Text('AlertDialog Title'),
-                    content: const Text('AlertDialog description'),
-                    actions: <Widget>[
-                      TextButton(
-                        onPressed: () => Navigator.pop(context, 'Cancel'),
-                        child: const Text('Cancel'),
+          child: Center(
+            child: Column(
+              children: [
+                _Button(
+                  onPressed: () {
+                    Navigator.push<void>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ButtonPage(),
                       ),
-                      TextButton(
-                        onPressed: () => Navigator.pop(context, 'OK'),
-                        child: const Text('OK'),
-                      ),
-                    ],
-                  ),
+                    );
+                  },
+                  text: 'button page',
                 ),
-                child: const Text('AlertDialog'),
-              ),
-            ],
+                _Button(
+                  onPressed: () {
+                    Navigator.push<void>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CardPage(),
+                      ),
+                    );
+                  },
+                  text: 'card page',
+                ),
+                _Button(
+                  onPressed: () {
+                    Navigator.push<void>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AppBarPage(),
+                      ),
+                    );
+                  },
+                  text: 'app bar page',
+                ),
+                _Button(
+                  onPressed: () {
+                    Navigator.push<void>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NavigationBarPage(),
+                      ),
+                    );
+                  },
+                  text: 'navigation bar page',
+                ),
+                _Button(
+                  onPressed: () {
+                    Navigator.push<void>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NavigationRailPage(),
+                      ),
+                    );
+                  },
+                  text: 'navigation rail page',
+                ),
+                _Button(
+                  onPressed: () => showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('Title'),
+                      content: const Text('description'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  text: 'AlertDialog',
+                ),
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _Button extends StatelessWidget {
+  const _Button({
+    required this.onPressed,
+    required this.text,
+  });
+
+  final String text;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          width: 300,
+          height: 50,
+          child: ElevatedButton(
+            onPressed: onPressed,
+            child: Text(text),
+          ),
+        ),
+        const SizedBox(height: 20),
+      ],
     );
   }
 }

@@ -13,7 +13,7 @@ class _NavigationRailPageState extends State<NavigationRailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('NavigationRailPage')),
+      appBar: AppBar(title: const Text('navigation rail page')),
       body: Row(
         children: <Widget>[
           NavigationRail(

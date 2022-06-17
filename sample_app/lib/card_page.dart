@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CardPage extends StatelessWidget {
-  const CardPage({Key? key}) : super(key: key);
+  const CardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class CardPage extends StatelessWidget {
         title: const Text('card page'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
           child: Column(
             children: const <Widget>[
@@ -26,7 +26,7 @@ class CardPage extends StatelessWidget {
 }
 
 class ElevatedCardExample extends StatelessWidget {
-  const ElevatedCardExample({Key? key}) : super(key: key);
+  const ElevatedCardExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class ElevatedCardExample extends StatelessWidget {
 }
 
 class FilledCardExample extends StatelessWidget {
-  const FilledCardExample({Key? key}) : super(key: key);
+  const FilledCardExample({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class FilledCardExample extends StatelessWidget {
 }
 
 class OutlinedCardExample extends StatelessWidget {
-  const OutlinedCardExample({Key? key}) : super(key: key);
+  const OutlinedCardExample({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NavigationRailPage extends StatefulWidget {
-  const NavigationRailPage({Key? key}) : super(key: key);
+  const NavigationRailPage({super.key});
 
   @override
   State<NavigationRailPage> createState() => _NavigationRailPageState();

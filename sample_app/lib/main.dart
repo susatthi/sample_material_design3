@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:sample_app/app_bar_page.dart';
-import 'package:sample_app/button_page.dart';
-import 'package:sample_app/card_page.dart';
-import 'package:sample_app/navigation_bar_page.dart';
-import 'package:sample_app/navigation_rail_page.dart';
+
+import 'app_bar_page.dart';
+import 'button_page.dart';
+import 'card_page.dart';
+import 'navigation_bar_page.dart';
+import 'navigation_rail_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
+
   final String title;
 
   @override
@@ -43,52 +45,62 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ButtonPage()));
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ButtonPage(),
+                    ),
+                  );
                 },
                 child: const Text('button page'),
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const CardPage()));
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CardPage(),
+                    ),
+                  );
                 },
                 child: const Text('card page'),
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AppBarPage()));
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AppBarPage(),
+                    ),
+                  );
                 },
                 child: const Text('app bar page'),
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NavigationBarPage()));
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationBarPage(),
+                    ),
+                  );
                 },
                 child: const Text('navigation bar page'),
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const NavigationRailPage()));
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationRailPage(),
+                    ),
+                  );
                 },
                 child: const Text('navigation rail page'),
               ),

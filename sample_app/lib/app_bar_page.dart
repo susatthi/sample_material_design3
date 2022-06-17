@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppBarPage extends StatelessWidget {
-  const AppBarPage({Key? key}) : super(key: key);
+  const AppBarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,28 +14,32 @@ class AppBarPage extends StatelessWidget {
             tooltip: 'Show Snackbar',
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('This is a snackbar')));
+                const SnackBar(content: Text('This is a snackbar')),
+              );
             },
           ),
           IconButton(
             icon: const Icon(Icons.navigate_next),
             tooltip: 'Go to the next page',
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute<void>(
-                builder: (BuildContext context) {
-                  return Scaffold(
-                    appBar: AppBar(
-                      title: const Text('Next page'),
-                    ),
-                    body: const Center(
-                      child: Text(
-                        'This is the next page',
-                        style: TextStyle(fontSize: 24),
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return Scaffold(
+                      appBar: AppBar(
+                        title: const Text('Next page'),
                       ),
-                    ),
-                  );
-                },
-              ));
+                      body: const Center(
+                        child: Text(
+                          'This is the next page',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              );
             },
           ),
         ],
